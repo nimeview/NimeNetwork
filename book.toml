@@ -1,0 +1,16 @@
+[book]
+title = "NimeNetwork"
+authors = ["Arthur", "Codex"]
+language = "ru"
+multilingual = false
+src = "book/src"
+
+[build]
+build-dir = "book/build"
+create-missing = false
+
+[output.html]
+default-theme = "light"
+preferred-dark-theme = "navy"
+git-repository-url = "https://example.invalid/nimenetwork"
+site-url = "/"

@@ -1,0 +1,15 @@
+[workspace]
+members = [
+    "client",
+    "services/ledger",
+    "services/storage",
+    "services/wiki",
+    "server/dns",
+    "server/portal",
+    "server/registry",
+]
+resolver = "2"
+
+[workspace.package]
+edition = "2024"
+version = "0.1.0"

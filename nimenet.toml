@@ -1,0 +1,19 @@
+# This is an invitation file to an innernet network.
+#
+# To join, you must install innernet.
+# See https://github.com/tonarino/innernet for instructions.
+#
+# If you have innernet, just run:
+#
+#   innernet install <this file>
+#
+# Don't edit the contents below unless you love chaos and dysfunction.
+[interface]
+network-name = "nimenet"
+address = "10.42.1.1/16"
+private-key = "OGmnNMdkkQiLSw0vGooBafJArtr/KCyP0kyUq3B32Vk="
+
+[server]
+public-key = "mI/9j/IDFSPDUTfU2jTEWIDmPRHFaMs0DgqdeK3MwF0="
+external-endpoint = "132.243.17.10:51820"
+internal-endpoint = "10.42.0.1:51820"
