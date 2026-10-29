@@ -1,23 +1,54 @@
 # NimeNetwork
 
-Приватная сетевая платформа поверх `innernet`.
+Private network platform built around `innernet` for connecting machines, resolving
+internal names, and publishing services inside a controlled mesh network.
 
-Текущие части проекта:
+This repository brings together the network layer, server-side utilities, a small
+client CLI, and the service registry used by the platform.
 
-- `server/innernet` — базовая mesh-сеть
-- `server/dns` — внутренний DNS для пиров и сервисов
-- `server/registry` — реестр сервисов и HTTP API
-- `server/portal` — общая стартовая страница и поиск
-- `client` — CLI для подключения, переподключения, DNS и быстрых проверок
+## What is included
 
-С чего начать:
+- `server/innernet` — vendored Rust source for the WireGuard-based mesh layer
+- `server/dns` — internal DNS for peers and services
+- `server/registry` — service registry and HTTP API
+- `server/portal` — internal landing page and service search
+- `client` — CLI for setup, reconnect, DNS, and quick network checks
+- `services/` — small registry-backed services used by the network
+- `book/src/` and `docs/` — operational and user documentation
 
-- `mdBook`: `book/src/` и `book.toml`
-- если установлен `mdbook`: `mdbook serve -o`
-- [RUNBOOK.md](/Users/arthur/Documents/Project/NimeNetwork/RUNBOOK.md:1) — подробный сценарий запуска
-- [docs/QUICKSTART.md](/Users/arthur/Documents/Project/NimeNetwork/docs/QUICKSTART.md:1) — короткий путь запуска
-- [docs/USER_GUIDE.md](/Users/arthur/Documents/Project/NimeNetwork/docs/USER_GUIDE.md:1) — сценарии для обычного пользователя сети
-- [docs/ADMIN_GUIDE.md](/Users/arthur/Documents/Project/NimeNetwork/docs/ADMIN_GUIDE.md:1) — сценарии для администратора сети
-- [docs/PUBLISH_SERVICE.md](/Users/arthur/Documents/Project/NimeNetwork/docs/PUBLISH_SERVICE.md:1) — как публиковать сайт или приложение в сети
-- [docs/RELEASES.md](/Users/arthur/Documents/Project/NimeNetwork/docs/RELEASES.md:1) — сборка и упаковка бинарников
-- [docs/IMPROVEMENTS.md](/Users/arthur/Documents/Project/NimeNetwork/docs/IMPROVEMENTS.md:1) — следующие улучшения
+## Quick start
+
+The complete setup depends on the target operating system and requires elevated
+privileges for the network interface. Start with [docs/QUICKSTART.md](docs/QUICKSTART.md)
+or use the more detailed [RUNBOOK.md](RUNBOOK.md).
+
+To build the Rust workspace:
+
+```bash
+cargo build --workspace
+```
+
+To run the tests:
+
+```bash
+cargo test --workspace --all-targets
+```
+
+The embedded `innernet` workspace is built separately from
+`server/innernet/` when a client or server binary is required.
+
+## Documentation
+
+- [Quick start](docs/QUICKSTART.md)
+- [User guide](docs/USER_GUIDE.md)
+- [Administrator guide](docs/ADMIN_GUIDE.md)
+- [Publishing a service](docs/PUBLISH_SERVICE.md)
+- [Release workflow](docs/RELEASES.md)
+- [Operational runbook](RUNBOOK.md)
+- [Architecture book](book/src/README.md)
+
+## Status
+
+NimeNetwork is a private infrastructure project and remains under active
+development. The repository is used to document and evolve the network topology,
+service discovery flow, deployment scripts, and client operations.

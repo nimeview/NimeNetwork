@@ -90,32 +90,32 @@ cargo run -p nime-portal -- --bind 0.0.0.0:8080 --registry-api 127.0.0.1:4172 --
 
 Предположения:
 
-- репозиторий: `/Users/arthur/Documents/Project/NimeNetwork`
+- репозиторий: `~/NimeNetwork`
 - invitation уже скопирован на клиентскую машину
 
 ### 1. Собрать `innernet`
 
 ```bash
-cd /Users/arthur/Documents/Project/NimeNetwork/server/innernet
+cd ~/NimeNetwork/server/innernet
 cargo build --release --bin innernet
 ```
 
 ### 2. Инициализировать `nime-client`
 
 ```bash
-cd /Users/arthur/Documents/Project/NimeNetwork
+cd ~/NimeNetwork
 cargo run -p nime-client -- init \
   --network nime \
   --innernet-network nimenet \
   --dns-server 10.42.0.1:5354 \
   --dns-zone nime.internal \
-  --innernet-bin /Users/arthur/Documents/Project/NimeNetwork/server/innernet/target/release/innernet
+  --innernet-bin "$HOME/NimeNetwork/server/innernet/target/release/innernet"
 ```
 
 ### 3. Подключиться
 
 ```bash
-cd /Users/arthur/Documents/Project/NimeNetwork
+cd ~/NimeNetwork
 cargo build --release -p nime-client
 sudo ./target/release/nime-client setup --invite invitation.toml
 ```

@@ -239,7 +239,7 @@ sudo systemctl enable --now innernet-server@nimenet
 
 Предположения:
 
-- путь к репозиторию: `/Users/arthur/Documents/Project/NimeNetwork`
+- путь к репозиторию: `~/NimeNetwork`
 - invitation уже скопирован на Mac
 - имя сети / интерфейса: `nimenet`
 - DNS-сервер: `10.42.0.1:5354`
@@ -247,26 +247,26 @@ sudo systemctl enable --now innernet-server@nimenet
 ### 1. Собрать клиентский `innernet`
 
 ```bash
-cd /Users/arthur/Documents/Project/NimeNetwork/server/innernet
+cd ~/NimeNetwork/server/innernet
 cargo build --release --bin innernet
 ```
 
 Ожидаемый бинарник:
 
 ```text
-/Users/arthur/Documents/Project/NimeNetwork/server/innernet/target/release/innernet
+~/NimeNetwork/server/innernet/target/release/innernet
 ```
 
 ### 2. Инициализировать `nime-client`
 
 ```bash
-cd /Users/arthur/Documents/Project/NimeNetwork
+cd ~/NimeNetwork
 cargo run -p nime-client -- init \
   --network nime \
   --innernet-network nimenet \
   --dns-server 10.42.0.1:5354 \
   --dns-zone nime.internal \
-  --innernet-bin /Users/arthur/Documents/Project/NimeNetwork/server/innernet/target/release/innernet
+  --innernet-bin "$HOME/NimeNetwork/server/innernet/target/release/innernet"
 ```
 
 Если `wireguard-go` уже стоит и виден в `PATH`, `nime-client` найдёт его сам.
@@ -275,7 +275,7 @@ cargo run -p nime-client -- init \
 ### 3. Проверить конфиг клиента
 
 ```bash
-cd /Users/arthur/Documents/Project/NimeNetwork
+cd ~/NimeNetwork
 cargo run -p nime-client -- doctor
 ```
 
@@ -289,7 +289,7 @@ cargo run -p nime-client -- doctor
 - установку DNS-конфига
 
 ```bash
-cd /Users/arthur/Documents/Project/NimeNetwork
+cd ~/NimeNetwork
 cargo build --release -p nime-client
 sudo ./target/release/nime-client setup --invite invitation.toml
 ```
@@ -303,21 +303,21 @@ sudo ./target/release/nime-client setup --invite /full/path/to/arthur-client.tom
 ### 5. При необходимости установить DNS вручную
 
 ```bash
-cd /Users/arthur/Documents/Project/NimeNetwork
+cd ~/NimeNetwork
 sudo ./target/release/nime-client dns-install --format resolver
 ```
 
 ### 6. Переподключение после рестарта
 
 ```bash
-cd /Users/arthur/Documents/Project/NimeNetwork
+cd ~/NimeNetwork
 sudo ./target/release/nime-client reconnect
 ```
 
 ### 7. Отключение от сети
 
 ```bash
-cd /Users/arthur/Documents/Project/NimeNetwork
+cd ~/NimeNetwork
 sudo ./target/release/nime-client disconnect
 ```
 
@@ -332,28 +332,28 @@ sudo ./target/release/nime-client disconnect --keep-dns
 Сначала посмотреть конфиг:
 
 ```bash
-cd /Users/arthur/Documents/Project/NimeNetwork
+cd ~/NimeNetwork
 cargo run -p nime-client -- autostart-print --format launchd
 ```
 
 Потом установить:
 
 ```bash
-cd /Users/arthur/Documents/Project/NimeNetwork
+cd ~/NimeNetwork
 sudo ./target/release/nime-client autostart-install --format launchd
 ```
 
 ### 9. Проверить peers
 
 ```bash
-cd /Users/arthur/Documents/Project/NimeNetwork
+cd ~/NimeNetwork
 sudo ./target/release/nime-client peers --tree
 ```
 
 ### 10. Посмотреть список сервисов
 
 ```bash
-cd /Users/arthur/Documents/Project/NimeNetwork
+cd ~/NimeNetwork
 cargo run -p nime-client -- services
 ```
 
@@ -412,7 +412,7 @@ sudo target/release/innernet-server new
 Сначала собери его:
 
 ```bash
-cd /Users/arthur/Documents/Project/NimeNetwork/server/innernet
+cd ~/NimeNetwork/server/innernet
 cargo build --release --bin innernet
 ```
 

@@ -1,1 +1,19 @@
-/target
+/target/
+/server/innernet/target/
+/release/
+/dist/
+/book/book/
+
+# Local machine and IDE files
+.DS_Store
+.idea/
+.vscode/
+
+# Local network state and secrets
+*.db
+*.sqlite
+*.sqlite3
+*.invitation.toml
+invitation.toml
+*.key
+*.pem

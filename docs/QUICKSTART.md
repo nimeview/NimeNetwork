@@ -62,26 +62,26 @@ scripts/nime-server-linux.sh run-portal
 Собрать `innernet` один раз:
 
 ```bash
-cd /Users/arthur/Documents/Project/NimeNetwork/server/innernet
+cd ~/NimeNetwork/server/innernet
 cargo build --release --bin innernet
 ```
 
 Инициализировать `nime-client`:
 
 ```bash
-cd /Users/arthur/Documents/Project/NimeNetwork
+cd ~/NimeNetwork
 cargo run -p nime-client -- init \
   --network nime \
   --innernet-network nimenet \
   --dns-server 10.42.0.1:5354 \
   --dns-zone nime.internal \
-  --innernet-bin /Users/arthur/Documents/Project/NimeNetwork/server/innernet/target/release/innernet
+  --innernet-bin "$HOME/NimeNetwork/server/innernet/target/release/innernet"
 ```
 
 Подключиться:
 
 ```bash
-cd /Users/arthur/Documents/Project/NimeNetwork
+cd ~/NimeNetwork
 cargo build --release -p nime-client
 sudo ./target/release/nime-client setup --invite invitation.toml
 ```
